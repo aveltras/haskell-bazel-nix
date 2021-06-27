@@ -15,8 +15,7 @@ jobs:
     - name: Setup bazel cache
       uses: actions/cache@v2
       with:
-        path: |
-          ~/.cache/bazel
-        key: ${{ runner.os }}-bazel
+        path: /home/runner/cache/bazel
+        key: ${{ runner.os }}-bazelcache
     - name: Build the code
       run: bazel build //...
