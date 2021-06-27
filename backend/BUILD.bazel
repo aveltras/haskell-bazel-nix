@@ -1,0 +1,22 @@
+load(
+    "@rules_haskell//haskell:defs.bzl",
+    "haskell_binary",
+    "haskell_toolchain_library",
+)
+
+haskell_toolchain_library(name="base")
+haskell_toolchain_library(name="effectful")
+
+haskell_binary(
+    name = "skeleton",
+    srcs = glob(["src/**/*.hs"]),
+    src_strip_prefix = "src",
+    compiler_flags = [],
+    deps = [
+        "base",
+        "effectful",
+    ],
+    visibility = [
+        "//visibility:public",
+    ],
+)
