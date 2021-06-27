@@ -20,3 +20,13 @@ haskell_binary(
         "//visibility:public",
     ],
 )
+
+load("@io_bazel_rules_docker//cc:image.bzl", "cc_image")
+cc_image(
+    name = "skeleton_container",
+    base = "@haskell-base-image//image",
+    binary = ":skeleton",
+    # ports = [ "8000/tcp" ],
+    creation_time = "{BUILD_TIMESTAMP}",
+    stamp = True,
+)

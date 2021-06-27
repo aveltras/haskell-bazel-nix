@@ -24,6 +24,22 @@ let
         effectful
       ]);
     })
+
+    (self: super: {
+      raw-haskell-base-image =
+        let haskellBase = super.dockerTools.buildLayeredImage {
+          name = "haskell-base-image";
+          created = "now";
+          contents = with super; [
+            gmp
+            libffi
+          ];
+        };
+        in super.runCommand "haskell-base-image" { } ''
+          mkdir -p $out
+          gunzip -c ${haskellBase} > $out/image
+        '';
+    })
   ];
 
 in args@{ overlays ? [], ... }:
