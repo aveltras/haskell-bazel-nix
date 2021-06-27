@@ -4,4 +4,4 @@ import Data.List
 import Effectful.Reader
 
 main :: IO ()
-main = print "hello, world! (updated)"
+main = print "hello, world!"
