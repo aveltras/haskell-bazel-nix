@@ -52,3 +52,14 @@ backend/package-a/src/Main.hs:3:1:Could not find module ‘Lib2’
 Perhaps you meant Lib (from libiserv-8.10.4)
 Use -v (or `:set -v` in ghci) to see a list of the files searched for.
 ```
+
+Output of hie-bios debug backend/package-a/src/Main.hs
+```sh
+Root directory:        /home/romain/Code/skeleton
+Component directory:   /home/romain/Code/skeleton
+GHC options:           -package-id base-4.14.1.0 -package-id base-4.14.1.0 -pgma bazel-out/host/bin/external/rules_haskell/haskell/cc_wrapper-python -pgmc bazel-out/host/bin/external/rules_haskell/haskell/cc_wrapper-python -pgml bazel-out/host/bin/external/rules_haskell/haskell/cc_wrapper-python -pgmP "bazel-out/host/bin/external/rules_haskell/haskell/cc_wrapper-python -E -undef -traditional" -optc-fno-stack-protector -ibackend/package-b/ -ibazel-out/k8-fastbuild/bin/backend/package-b/ -ibackend/package-a/ -ibazel-out/k8-fastbuild/bin/backend/package-a/ backend/package-b/src/Lib2.hs backend/package-a/src/Main.hs -Wwarn
+GHC library directory: CradleSuccess "/nix/store/dw33h578wv2rqcxl0yhpcrfs33p0rl2r-ghc-8.10.4-with-packages/lib/ghc-8.10.4"
+GHC version:           CradleSuccess "8.10.4"
+Config Location:       /home/romain/Code/skeleton/hie.yaml
+Cradle:                Cradle {cradleRootDir = "/home/romain/Code/skeleton", cradleOptsProg = CradleAction: Multi}
+```
