@@ -6,7 +6,9 @@ load(
 haskell_repl(
   name = "hie-bios",
   collect_data = False,
+  # hie_bios_path_prefix = ["$magic_string"],
   deps = [
-    "//backend:skeleton",
+    "//backend/package-b:lib",
+    "//backend/package-a:exe",
   ],
 )

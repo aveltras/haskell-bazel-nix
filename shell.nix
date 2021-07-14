@@ -11,5 +11,6 @@ in pkgs.mkShell {
     (haskellTool "ghcid")
     (haskellTool "hlint")
     (haskellTool "haskell-language-server")
+    (haskellTool "hie-bios")
   ];
 }

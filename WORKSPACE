@@ -14,8 +14,8 @@ http_archive(
   strip_prefix = "rules_haskell-c0e0759dc9c170ec589953194c0efa8fb1f5341d",
   urls = ["https://github.com/tweag/rules_haskell/archive/c0e0759dc9c170ec589953194c0efa8fb1f5341d.tar.gz"],
   sha256 = "3ed7e30e3aefe33e5e1c785d5d10dce2467172d670695b6c55b69052028f240c",
-  patch_args = ["-p1"],
-  patches = ["//:clean_rules_haskell.patch"],
+  # patch_args = ["-p1"],
+  # patches = ["//:clean_rules_haskell.patch"],
 )
 
 http_archive(
@@ -34,8 +34,9 @@ rules_nixpkgs_dependencies()
 load("@rules_haskell//haskell:repositories.bzl", "rules_haskell_dependencies")
 rules_haskell_dependencies()
 
-load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_local_repository", "nixpkgs_package")
+load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_local_repository", "nixpkgs_python_configure", "nixpkgs_package")
 nixpkgs_local_repository(name = "nixpkgs", nix_file = "//:nixpkgs.nix")
+nixpkgs_python_configure(repository = "@nixpkgs")
 
 load("@rules_haskell//haskell:nixpkgs.bzl", "haskell_register_ghc_nixpkgs")
 haskell_register_ghc_nixpkgs(

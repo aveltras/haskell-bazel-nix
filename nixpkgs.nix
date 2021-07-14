@@ -21,7 +21,7 @@ let
     # override ghc adding all project dependencies as toolchain packages
     (self: super: {
       compiler = super.haskellPackages.ghcWithPackages (p: with p; [
-        effectful
+        # effectful
       ]);
     })
 

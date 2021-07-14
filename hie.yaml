@@ -1,3 +1,9 @@
 cradle:
-  bios:
-    program: ".hie-bios"
+  multi:
+    - path: ./.
+      config: { cradle: { none: } }
+    - path: "./backend"
+      config:
+        cradle:
+          bios:
+            program: ".hie-bios"
