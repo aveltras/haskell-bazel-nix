@@ -5,4 +5,4 @@ import Data.List
 -- import Effectful.Reader
 
 main :: IO ()
-main = print lib
+main = print $ head ["test"]

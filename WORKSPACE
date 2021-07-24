@@ -14,8 +14,6 @@ http_archive(
   strip_prefix = "rules_haskell-c0e0759dc9c170ec589953194c0efa8fb1f5341d",
   urls = ["https://github.com/tweag/rules_haskell/archive/c0e0759dc9c170ec589953194c0efa8fb1f5341d.tar.gz"],
   sha256 = "3ed7e30e3aefe33e5e1c785d5d10dce2467172d670695b6c55b69052028f240c",
-  # patch_args = ["-p1"],
-  # patches = ["//:clean_rules_haskell.patch"],
 )
 
 http_archive(
@@ -40,10 +38,11 @@ nixpkgs_python_configure(repository = "@nixpkgs")
 
 load("@rules_haskell//haskell:nixpkgs.bzl", "haskell_register_ghc_nixpkgs")
 haskell_register_ghc_nixpkgs(
-  version = "8.10.4",
-  attribute_path = "compiler",
-  repository = "@nixpkgs",
-  # repositories = { "nixpkgs": "@nixpkgs" },
+    version = "8.10.4",
+    attribute_path = "compiler",
+    repository = "@nixpkgs",
+    static_runtime = True,
+    fully_static_link = True,
 )
 
 nixpkgs_package(
@@ -57,7 +56,15 @@ exports_files(["image"])
 )
 
 load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_cc_configure")
-nixpkgs_cc_configure(repository = "@nixpkgs")
+nixpkgs_cc_configure(
+    repository = "@nixpkgs",
+    nix_file_content = """
+      with import <nixpkgs> { config = {}; overlays = []; }; buildEnv {
+        name = "bazel-cc-toolchain";
+        paths = [ staticHaskell.stdenv.cc staticHaskell.binutils ];
+      }
+    """,
+)
 
 load("@io_bazel_rules_docker//repositories:repositories.bzl", container_repositories = "repositories")
 container_repositories()

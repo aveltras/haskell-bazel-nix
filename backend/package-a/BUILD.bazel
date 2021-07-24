@@ -12,6 +12,7 @@ haskell_binary(
     srcs = glob(["src/**/*.hs"]),
     # src_strip_prefix = "backend",
     compiler_flags = [],
+    features = [ "fully_static_link" ],
     deps = [
         "//backend/package-b:lib",
         "base",

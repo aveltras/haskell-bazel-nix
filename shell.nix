@@ -8,9 +8,9 @@ in pkgs.mkShell {
   packages = [
     pkgs.bazel
     pkgs.compiler
-    (haskellTool "ghcid")
-    (haskellTool "hlint")
-    (haskellTool "haskell-language-server")
-    (haskellTool "hie-bios")
+    # (haskellTool "ghcid")
+    # (haskellTool "hlint")
+    # (haskellTool "haskell-language-server")
+    # (haskellTool "hie-bios")
   ];
 }
