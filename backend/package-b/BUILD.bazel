@@ -5,7 +5,7 @@ load(
 )
 
 haskell_toolchain_library(name="base")
-# haskell_toolchain_library(name="effectful")
+haskell_toolchain_library(name="lens")
 
 haskell_library(
     name = "lib",
@@ -14,7 +14,7 @@ haskell_library(
     compiler_flags = [],
     deps = [
         "base",
-        # "effectful",
+        "lens",
     ],
     visibility = [
         "//visibility:public",

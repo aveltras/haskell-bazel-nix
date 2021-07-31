@@ -34,9 +34,9 @@ let
     (self: super: {
 
       # replace staticHaskell lndir with default one
-      xorg = super.xorg // {
-        lndir = super.xorg.lndir;
-      };
+      # xorg = super.xorg // {
+      #   lndir = super.xorg.lndir;
+      # };
       
       staticHaskell = staticHaskellPkgs.extend (selfSH: superSH: {
         ghc = (superSH.ghc.override {
@@ -55,9 +55,8 @@ let
     # override ghc adding all project dependencies as toolchain packages
     (self: super: {
       compiler = super.staticHaskell.haskellPackages.ghcWithPackages (p: with p; [
-        # aeson # uncommenting this breaks the build
-        # effectful
         bytestring
+        lens
       ]);
     })
 

@@ -9,11 +9,18 @@ http_archive(
     sha256 = "47fffc870a25d82deedb887c32481a43a12f56b51e5002773046f81fbe3ea9df",
 )
 
+# http_archive(
+#   name = "rules_haskell",
+#   strip_prefix = "rules_haskell-c0e0759dc9c170ec589953194c0efa8fb1f5341d",
+#   urls = ["https://github.com/tweag/rules_haskell/archive/c0e0759dc9c170ec589953194c0efa8fb1f5341d.tar.gz"],
+#   sha256 = "3ed7e30e3aefe33e5e1c785d5d10dce2467172d670695b6c55b69052028f240c",
+# )
+
 http_archive(
   name = "rules_haskell",
-  strip_prefix = "rules_haskell-c0e0759dc9c170ec589953194c0efa8fb1f5341d",
-  urls = ["https://github.com/tweag/rules_haskell/archive/c0e0759dc9c170ec589953194c0efa8fb1f5341d.tar.gz"],
-  sha256 = "3ed7e30e3aefe33e5e1c785d5d10dce2467172d670695b6c55b69052028f240c",
+  strip_prefix = "rules_haskell-c86d272dc109d865c78f0c77aac04dca412bcada",
+  urls = ["https://github.com/tweag/rules_haskell/archive/c86d272dc109d865c78f0c77aac04dca412bcada.tar.gz"],
+  sha256 = "d5a26726f68128b248c0a3f6f72fa56dbef79447cd2353327be9071ffdcd8db0",
 )
 
 http_archive(
